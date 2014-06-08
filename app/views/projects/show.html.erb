@@ -1,0 +1,10 @@
+<h1><%= @project.title %></h1>
+
+<% @project.models.each do |model| %>
+  <%= model.name %>
+<% end %>
+
+<%=form_for :model, url: user_project_models_path(current_user,@project) do |f| %>
+  <%= f.text_field :name, :placeholder => "Name" %>
+  <%= f.submit %>
+<% end %>

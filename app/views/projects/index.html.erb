@@ -1,0 +1,14 @@
+<h1>Your Projects</h1>
+<% if @projects != nil %>
+  <% @projects.each do |project| %>
+    <%=link_to project.title, user_project_path(current_user, project) %>
+  <%end %>
+<%end%>
+
+<h1> Add a project</h1>
+<%= form_for :project, url: user_projects_path(current_user) do |f| %>
+  <%= f.text_field :title, :placeholder => "Project Title" %>
+  <%= f.submit %>
+<% end %>
+
+<%=link_to 'Logout', destroy_user_session_path, :method => :delete %>
