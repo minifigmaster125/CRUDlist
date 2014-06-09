@@ -1,7 +1,7 @@
 <h1>Your Projects</h1>
 <% if @projects != nil %>
   <% @projects.each do |project| %>
-    <%=link_to project.title, user_project_path(current_user, project) %>
+    <h3><%=link_to project.title, user_project_path(current_user, project) %></h3>
   <%end %>
 <%end%>
 
@@ -11,4 +11,3 @@
   <%= f.submit %>
 <% end %>
 
-<%=link_to 'Logout', destroy_user_session_path, :method => :delete %>

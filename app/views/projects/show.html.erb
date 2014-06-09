@@ -1,7 +1,17 @@
 <h1><%= @project.title %></h1>
+    <%= form_tag user_project_path(current_user, @project), :method => :delete do %>
+      <% submit_tag "Delete", data: {confirm: "Are you sure?"} %>
+    <%end%>
 
 <% @project.models.each do |model| %>
-  <%= model.name %>
+  <h3><%= model.name %></h3>
+      <%= model.CRUDcreate %>
+      <%= model.CRUDread %>
+      <%= model.CRUDupdate %>
+      <%= model.CRUDdestroy %>
+      <%= form_tag user_project_model_path(current_user, @project, model),  :method => 'delete' do %>
+        <%=submit_tag "Delete", data: {confirm: 'Are you sure'} %>
+      <%end %>
 <% end %>
 
 <%=form_for :model, url: user_project_models_path(current_user,@project) do |f| %>

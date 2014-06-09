@@ -28,6 +28,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+
   end
 
 

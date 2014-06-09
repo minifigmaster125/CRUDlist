@@ -26,6 +26,12 @@ class ModelsController < ApplicationController
   end
 
   def destroy
+    @project = Project.find(params[:project_id])
+    @model = @project.models.find(params[:id])
+    if(@model.destroy)
+      redirect_to user_project_path(current_user, @project)
+    else
+    end
   end
 
   private
