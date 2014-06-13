@@ -7,5 +7,6 @@ $("[id^=edit_project_]").on("ajax:success", function(e, data, status, xhr) {
     id = ($(this).attr("project_id")) 
     $("#Plink" + id).remove()
     $("#projectTitle" + id).remove()
+    $("#projectDelete" + id).remove()
   })  
 })

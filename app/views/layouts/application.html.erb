@@ -1,3 +1,32 @@
+
+
+<% content_for :header do %>
+  <nav class="top-bar" data-topbar >
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "CRUDlist", user_projects_path(current_user), class: "top-bar__title"%></h1>
+      </li>
+    </ul>
+    <section class = "top-bar-section">
+    <ul class = "right">
+      <% if user_signed_in? %>
+        <li><%=link_to "#{current_user.email}", edit_user_registration_path(current_user), class: "top-bar-section__email" %></li>
+        <li><%=link_to 'Projects', user_projects_path(current_user) %></li>
+        <li><%=link_to 'Edit Yourself', edit_user_registration_path(current_user) %></li>
+        <li><%=link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+      <%end%>
+    </ul>
+  </nav>
+<% end %>
+
+<% content_for :footer do %>
+  <div class="footer" >
+    <p>Courtesy of Suchaaver Chahal</p>
+    <p class="footer__github">View it on Github</p>
+  </div>
+<% end %>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,16 +40,15 @@
     <%= csrf_meta_tags %>
   </head>
 
+
   <body>
-    <% if user_signed_in? %>
-      <%= "Hello, #{current_user.email} "%>
-      <%=link_to 'Projects', user_projects_path(current_user) %>
-      <%=link_to 'Edit Yourself', edit_user_registration_path(current_user) %>
-      <%=link_to 'Logout', destroy_user_session_path, :method => :delete %>
-    <%end%>
+    <%= yield :header %>
 
     <%= render 'layouts/messages' %>
     <%= yield %>
+    <%= yield :footer %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
+
+

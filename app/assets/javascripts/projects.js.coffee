@@ -7,4 +7,5 @@ $(document).ready ->
     id = ($(this).attr("project_id")) 
     $("#Plink" + id).remove()
     $("#projectTitle" + id).remove()
+    $("#projectDelete" + id).remove()
 

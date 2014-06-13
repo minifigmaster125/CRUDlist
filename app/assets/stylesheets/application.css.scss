@@ -1,0 +1,51 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+*/
+/*
+ *= require_self
+*/
+
+@import "foundation_and_overrides";
+
+@mixin vertical-align{
+  position: relative;
+  //top: 50%;
+  //-webkit-transform: translateY(-50%);
+  //-ms-transform: translateY(-50%);
+  //transform: translateY(-50%);
+}
+
+
+.top-bar .name h1 .top-bar__title { 
+  color: $secondary-color;
+}
+
+.top-bar-section .right .top-bar-section__email { 
+  color: $secondary-color;
+}
+
+.footer {
+  margin: 0 auto;
+  text-align: center;
+  background-color: $primary-color;
+}
+
+.footer__github{
+  color: $secondary-color;
+}
+
+@import "projects";
+@import "users";
+@import "models";
+
+
+
+
