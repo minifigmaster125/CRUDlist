@@ -7,9 +7,10 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(project_params)
 
-    if (@project.save!)
+    if (@project.save)
       redirect_to user_projects_path
     else
+      redirect_to user_projects_path
     end
   end
 
@@ -22,12 +23,29 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:id])
+    respond_to do |format|
+      format.js {}
+      format.html {}
+    end
   end
 
   def update
+    @project = Project.find(params[:id])
+
+    if(@project.update(project_params))
+      respond_to do |format|
+        format.html {}
+        format.js {}
+      end
+    end
   end
 
   def destroy
+    @project = Project.find(params[:id])
+    if(@project.destroy)
+      redirect_to user_projects_path
+    end
 
   end
 

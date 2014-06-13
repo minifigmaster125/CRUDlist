@@ -1,0 +1,8 @@
+
+    <%= content_tag :div, id:  "project#{project.id}" do %>
+    <h3><%=link_to project.title, user_project_path(current_user, project), id: "Plink#{project.id}" %></h3>
+    <%=link_to "Change Name", edit_user_project_path(current_user, project),  id: "projectTitle#{project.id}", project_id: project.id,  remote: true%>
+    <%= form_tag user_project_path(current_user, project), :method => :delete, id: "projectDelete#{project.id}" do %>
+      <% submit_tag "Delete", data: {confirm: "Are you sure?"} %>
+    <%end%>
+    <% end %>

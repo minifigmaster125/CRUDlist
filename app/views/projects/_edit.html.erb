@@ -1,0 +1,5 @@
+
+<%= form_for(@project, {url: user_project_path(current_user, @project), project_id: @project.id,  remote: true}) do |f| %>
+  <%= f.text_field :title, :value => @project.title, id: "projectInput#{@project.id}" %>
+  <%= f.submit "Update", id: "projectUpdate#{@project.id}"%>
+<% end %>

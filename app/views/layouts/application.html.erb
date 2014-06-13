@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>CRUDlist</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<% if user_signed_in? %>
-  <%= "Hello, #{current_user.email} "%>
-  <%=link_to 'Logout', destroy_user_session_path, :method => :delete %>
-<%end%>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-<%= render 'layouts/messages' %>
-<%= yield %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body>
+    <% if user_signed_in? %>
+      <%= "Hello, #{current_user.email} "%>
+      <%=link_to 'Projects', user_projects_path(current_user) %>
+      <%=link_to 'Edit Yourself', edit_user_registration_path(current_user) %>
+      <%=link_to 'Logout', destroy_user_session_path, :method => :delete %>
+    <%end%>
+
+    <%= render 'layouts/messages' %>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

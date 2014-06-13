@@ -1,9 +1,11 @@
 <h1>Your Projects</h1>
+<div id="projectList">
 <% if @projects != nil %>
   <% @projects.each do |project| %>
-    <h3><%=link_to project.title, user_project_path(current_user, project) %></h3>
+    <%= render project %>
   <%end %>
 <%end%>
+</div>
 
 <h1> Add a project</h1>
 <%= form_for :project, url: user_projects_path(current_user) do |f| %>
