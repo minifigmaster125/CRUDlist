@@ -1,12 +1,10 @@
 
 $("[id^=edit_project_]").on("ajax:success", function(e, data, status, xhr) {
-  $("#projectInput<%=@project.id%>").remove()
-  $("#projectUpdate<%=@project.id%>").remove()
-  $("#project<%=@project.id%>").append($("<%= j render(@project) %>"))
+
+  $("#edit_project_<%=@project.id%>").remove()
+  $("#projectSummary<%=@project.id%>").append($("<%= j render(@project) %>"))
   $("[id^=projectTitle]").click(function(){
     id = ($(this).attr("project_id")) 
-    $("#Plink" + id).remove()
-    $("#projectTitle" + id).remove()
-    $("#projectDelete" + id).remove()
+    $("#project" + id).remove()
   })  
 })

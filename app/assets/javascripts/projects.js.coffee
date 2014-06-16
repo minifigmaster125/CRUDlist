@@ -5,7 +5,5 @@
 $(document).ready ->
   $("[id^=projectTitle]").click ->
     id = ($(this).attr("project_id")) 
-    $("#Plink" + id).remove()
-    $("#projectTitle" + id).remove()
-    $("#projectDelete" + id).remove()
+    $("#project" + id).remove()
 
