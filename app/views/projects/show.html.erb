@@ -13,7 +13,7 @@
         <h2>EDIT</h2>
       </div>
       <div class = "small-3 columns">
-        <h2>DESTROY</h1>
+        <h2>DELETE</h1>
       </div>
     </div>
 
@@ -21,23 +21,23 @@
    <h3><%= model.name %></h3>
   <div class = "row models">
     <div class = "small-3 columns">
-      <%= form_tag user_project_model_path(current_user, @project, model), :method => :update do %>
-        <%= select_tag(:CRUDcreate, options_for_select(['0','1','2',"3"]), selected: model.CRUDcreate, id: "model#{model.id}") %>
+      <%= form_tag(user_project_model_path(current_user, @project, model), :method => :patch, id: "model__select__#{model.id}", remote: true) do %>
+        <%= select_tag(:CRUDcreate, options_for_select(['0','1','2',"3"]), selected: model.CRUDcreate, id: "model__change__#{model.id}", modelID: model.id, projectID: @project.id, userID: current_user.id )%>
       <% end %>
     </div>
    <div class = "small-3 columns">  
-      <%= form_tag user_project_model_path(current_user, @project, model), :method => :update do %>
-        <%= select_tag(:CRUDread, options_for_select(['0','1','2',"3"]), selected: model.CRUDread, id: "model#{model.id}") %>
+      <%= form_tag(user_project_model_path(current_user, @project, model), :method => :update, id: "model__select__#{model.id}", remote: true) do %>
+        <%= select_tag(:CRUDread, options_for_select(['0','1','2',"3"]), selected: model.CRUDread, id: "model__change__#{model.id}", modelID: model.id, projectID: @project.id, userID: current_user.id )  %>
       <% end %>
     </div>
    <div class = "small-3 columns"> 
-      <%= form_tag user_project_model_path(current_user, @project, model), :method => :update do %>
-        <%= select_tag(:CRUDupdate, options_for_select(['0','1','2',"3"]), selected: model.CRUDupdate, id: "model#{model.id}") %>
+      <%= form_tag(user_project_model_path(current_user, @project, model), :method => :update, id: "model__select__#{model.id}", remote: true) do %>
+        <%= select_tag(:CRUDupdate, options_for_select(['0','1','2',"3"]), selected: model.CRUDupdate, id: "model__change__#{model.id}", modelID: model.id, projectID: @project.id, userID: current_user.id  ) %>
       <% end %>
     </div>
    <div class = "small-3 columns"> 
-      <%= form_tag user_project_model_path(current_user, @project, model), :method => :update do %>
-        <%= select_tag(:CRUDdestroy, options_for_select(['0','1','2',"3"]), selected: model.CRUDdestroy, id: "model#{model.id}") %>
+      <%= form_tag(user_project_model_path(current_user, @project, model), :method => :update, id: "model__select__#{model.id}", remote: true) do %>
+        <%= select_tag(:CRUDdestroy, options_for_select(['0','1','2',"3"]), selected: model.CRUDdestroy, id: "model__change__#{model.id}", modelID: model.id, projectID: @project.id, userID: current_user.id  ) %>
       <% end %>
     </div>
   </div>

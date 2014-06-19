@@ -33,6 +33,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
 
+    puts "HELLO"
     if(@project.update(project_params))
       respond_to do |format|
         format.html {}

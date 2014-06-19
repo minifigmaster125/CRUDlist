@@ -5,7 +5,7 @@ class ModelsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @model = @project.models.new(model_params)
+    @model = @project.models.new(model_new_params)
 
     @model.CRUDcreate = 0
     @model.CRUDread = 0
@@ -23,6 +23,12 @@ class ModelsController < ApplicationController
   end
 
   def update
+    @model = Model.find(params[:id])
+    if(@model.update(model_update_params))
+      respond_to do |format|
+        format.js {}
+      end
+    end
   end
 
   def destroy
@@ -35,7 +41,10 @@ class ModelsController < ApplicationController
   end
 
   private
-    def model_params
+    def model_new_params
       params.require(:model).permit(:name)
+    end
+    def model_update_params
+      params.require(:model).permit(:name, :CRUDcreate, :CRUDread, :CRUDupdate, :CRUDdestroy)
     end
 end

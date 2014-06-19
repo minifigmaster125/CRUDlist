@@ -4,6 +4,21 @@
 #
 
 $(document).ready ->
-  $("[id^=model]").change ->
-    alert("HOWDY")
+  $("[id^=model__change]").change ->
+    modelID = $(this).attr("modelID") 
+    userID = $(this).attr("userID") 
+    projectID = $(this).attr("projectID") 
+    CRUDmethod =  $(this).attr("name")
+    data = {model: {id: modelID}}
+    data["model"][CRUDmethod] =  $(this).val()
+    $.ajax({
+      url: '/users/' + userID + '/projects/' + projectID + '/models/' + modelID,
+      type: 'PATCH',
+      #dataType: 'js',
+      data: data,
+      success: ->
+        console.log("success")
+      failure: -> 
+        console.log("FAILURE")
+    })
 
