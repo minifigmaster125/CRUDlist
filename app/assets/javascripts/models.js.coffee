@@ -4,7 +4,7 @@
 #
 
 $(document).ready ->
-  $("[id^=model__change]").change ->
+  $("[id^=model__change]").click ->
     modelID = $(this).attr("modelID") 
     userID = $(this).attr("userID") 
     projectID = $(this).attr("projectID") 

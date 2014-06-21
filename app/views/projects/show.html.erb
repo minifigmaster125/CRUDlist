@@ -17,29 +17,43 @@
       </div>
     </div>
 
+    <% values = {0 => "NotStarted.png", 1 => "Done.png", 2 => "InProgress.png", 3 => "NotApplicable.png"} %>
+
 <% @project.models.each do |model| %>
    <h3><%= model.name %></h3>
   <div class = "row models">
     <div class = "small-3 columns">
-      <%= form_tag(user_project_model_path(current_user, @project, model), :method => :patch, id: "model__select__#{model.id}", remote: true) do %>
-        <%= select_tag(:CRUDcreate, options_for_select(['0','1','2',"3"]), selected: model.CRUDcreate, id: "model__change__#{model.id}", modelID: model.id, projectID: @project.id, userID: current_user.id )%>
+     <%= image_tag(values[model.CRUDcreate], class: "model__select__create__#{model.id}", :"data-dropdown"=> "dropCreate#{model.id}")%>
+      <%= content_tag :ul, :id => "dropCreate#{model.id}", :class => "f-dropdown content" do %> 
+        <%= content_tag :li, :value => 1, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDcreate" do%><%= image_tag("Done.png") %><%end%>
+        <%= content_tag :li, :value => 2, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDcreate" do%><%= image_tag("InProgress.png") %><%end%>
+        <%= content_tag :li, :value => 3, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDcreate" do%><%= image_tag("NotApplicable.png") %><%end%>
       <% end %>
     </div>
    <div class = "small-3 columns">  
-      <%= form_tag(user_project_model_path(current_user, @project, model), :method => :update, id: "model__select__#{model.id}", remote: true) do %>
-        <%= select_tag(:CRUDread, options_for_select(['0','1','2',"3"]), selected: model.CRUDread, id: "model__change__#{model.id}", modelID: model.id, projectID: @project.id, userID: current_user.id )  %>
+     <%= image_tag(values[model.CRUDread], class: "model__select__read__#{model.id}", :"data-dropdown"=> "dropRead#{model.id}")%>
+       <%= content_tag :ul, :id => "dropRead#{model.id}", :class => "f-dropdown content" do %> 
+        <%= content_tag :li, :value => 1, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDread" do%><%= image_tag("Done.png") %><%end%>
+        <%= content_tag :li, :value => 2, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDread" do%><%= image_tag("InProgress.png") %><%end%>
+        <%= content_tag :li, :value => 3, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDread" do%><%= image_tag("NotApplicable.png") %><%end%>
       <% end %>
-    </div>
+   </div>
    <div class = "small-3 columns"> 
-      <%= form_tag(user_project_model_path(current_user, @project, model), :method => :update, id: "model__select__#{model.id}", remote: true) do %>
-        <%= select_tag(:CRUDupdate, options_for_select(['0','1','2',"3"]), selected: model.CRUDupdate, id: "model__change__#{model.id}", modelID: model.id, projectID: @project.id, userID: current_user.id  ) %>
+     <%= image_tag(values[model.CRUDupdate], class: "model__select__update__#{model.id}", :"data-dropdown"=> "dropUpdate#{model.id}")%>
+      <%= content_tag :ul, :id => "dropUpdate#{model.id}", :class => "f-dropdown content" do %> 
+        <%= content_tag :li, :value => 1, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDupdate" do%><%= image_tag("Done.png") %><%end%>
+        <%= content_tag :li, :value => 2, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDupdate" do%><%= image_tag("InProgress.png") %><%end%>
+        <%= content_tag :li, :value => 3, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDupdate" do%><%= image_tag("NotApplicable.png") %><%end%>
       <% end %>
-    </div>
+   </div>
    <div class = "small-3 columns"> 
-      <%= form_tag(user_project_model_path(current_user, @project, model), :method => :update, id: "model__select__#{model.id}", remote: true) do %>
-        <%= select_tag(:CRUDdestroy, options_for_select(['0','1','2',"3"]), selected: model.CRUDdestroy, id: "model__change__#{model.id}", modelID: model.id, projectID: @project.id, userID: current_user.id  ) %>
+     <%= image_tag(values[model.CRUDdestroy], class: "model__select__delete__#{model.id}", :"data-dropdown"=> "dropDelete#{model.id}")%>
+      <%= content_tag :ul, :id => "dropDelete#{model.id}", :class => "f-dropdown content" do %> 
+        <%= content_tag :li, :value => 1, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDdestroy" do%><%= image_tag("Done.png") %><%end%>
+        <%= content_tag :li, :value => 2, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDdestroy" do%><%= image_tag("InProgress.png") %><%end%>
+        <%= content_tag :li, :value => 3, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDdestroy" do%><%= image_tag("NotApplicable.png") %><%end%>
       <% end %>
-    </div>
+   </div>
   </div>
       <%= form_tag user_project_model_path(current_user, @project, model),  :method => 'delete' do %>
         <%=submit_tag "Delete", data: {confirm: 'Are you sure'} %>

@@ -1,0 +1,44 @@
+
+if (<%=@model.CRUDcreate%> == 0){
+  $(".model__select__create__<%= @model.id %>").attr("src", "/assets/NotStarted.png");
+} else if (<%=@model.CRUDcreate%> == 1){
+  $(".model__select__create__<%= @model.id %>").attr("src", "/assets/Done.png");
+} else if (<%=@model.CRUDcreate%> == 2){
+  $(".model__select__create__<%= @model.id %>").attr("src", "/assets/InProgress.png");
+} else if (<%=@model.CRUDcreate%> == 3){
+  $(".model__select__create__<%= @model.id %>").attr("src", "/assets/NotApplicable.png");
+}
+
+if (<%=@model.CRUDread%> == 0){
+  $(".model__select__read__<%= @model.id %>").attr("src", "/assets/NotStarted.png");
+} else if (<%=@model.CRUDread%> == 1){
+  $(".model__select__read__<%= @model.id %>").attr("src", "/assets/Done.png");
+} else if (<%=@model.CRUDread%> == 2){
+  $(".model__select__read__<%= @model.id %>").attr("src", "/assets/InProgress.png");
+} else if (<%=@model.CRUDread%> == 3){
+  $(".model__select__read__<%= @model.id %>").attr("src", "/assets/NotApplicable.png");
+}
+
+if (<%=@model.CRUDupdate%> == 0){
+  $(".model__select__update__<%= @model.id %>").attr("src", "/assets/NotStarted.png");
+} else if (<%=@model.CRUDupdate%> == 1){
+  $(".model__select__update__<%= @model.id %>").attr("src", "/assets/Done.png");
+} else if (<%=@model.CRUDupdate%> == 2){
+  $(".model__select__update__<%= @model.id %>").attr("src", "/assets/InProgress.png");
+} else if (<%=@model.CRUDupdate%> == 3){
+  $(".model__select__update__<%= @model.id %>").attr("src", "/assets/NotApplicable.png");
+}
+
+if (<%=@model.CRUDdestroy%> == 0){
+  $(".model__select__delete__<%= @model.id %>").attr("src", "/assets/NotStarted.png");
+} else if (<%=@model.CRUDdestroy%> == 1){
+  $(".model__select__delete__<%= @model.id %>").attr("src", "/assets/Done.png");
+} else if (<%=@model.CRUDdestroy%> == 2){
+  $(".model__select__delete__<%= @model.id %>").attr("src", "/assets/InProgress.png");
+} else if (<%=@model.CRUDdestroy%> == 3){
+  $(".model__select__delete__<%= @model.id %>").attr("src", "/assets/NotApplicable.png");
+}
+$("#dropDelete<%=@model.id %>").foundation('dropdown', 'close', $("#dropDelete<%=@model.id %>"))
+$("#dropCreate<%=@model.id %>").foundation('dropdown', 'close', $("#dropCreate<%=@model.id %>"))
+$("#dropUpdate<%=@model.id %>").foundation('dropdown', 'close', $("#dropUpdate<%=@model.id %>"))
+$("#dropRead<%=@model.id %>").foundation('dropdown', 'close', $("#dropRead<%=@model.id %>"))
