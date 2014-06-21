@@ -1,14 +1,30 @@
+<% done = true %>
+<% project.models.each do |model| %>
+  <% if model.CRUDcreate != 1 ||  model.CRUDread != 1 ||  model.CRUDupdate != 1 ||  model.CRUDdestroy != 1 %>
+      <% done = false %>
+  <% end %>
+<% end %>
+
 
     <%= content_tag :ul, id:  "project#{project.id}", class: "inline-list project__partial" do %>
-      <div class="small-4 columns" >
-        <li><h3><%=link_to project.title, user_project_path(current_user, project), id: "Plink#{project.id}" %></h3></li>
+      <div class="small-3 columns" >
+        <li><h3 class = "text-center project__index__title"><%=link_to project.title, user_project_path(current_user, project), id: "Plink#{project.id}" %></h3></li>
       </div>
-      <div class="small-4 columns" >
-        <li><%=link_to "Change Name", edit_user_project_path(current_user, project),  id: "projectTitle#{project.id}", project_id: project.id,  remote: true%></li>
+      <div class="small-3 columns" >
+        <li>
+          <% if done %>
+            <%= image_tag("Done.png") %></h3>
+          <% else %>
+            <%= image_tag("InProgress.png") %></h3>
+          <% end %>
+        </li>
       </div>
-      <div class="small-4 columns" >
+      <div class="small-3 columns" >
+        <li><%=link_to "Change Name", edit_user_project_path(current_user, project), class: "text-center project__change__name",  id: "projectTitle#{project.id}", project_id: project.id,  remote: true%></li>
+      </div>
+      <div class="small-3 columns" >
       <li><%= form_tag user_project_path(current_user, project), :method => :delete, id: "projectDelete#{project.id}" do %>
-        <% submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "button expand" %>
+        <% submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "button project__delete__button" %>
         <%end%>
       </li>
       </div>

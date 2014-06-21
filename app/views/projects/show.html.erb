@@ -1,28 +1,30 @@
-<h1><%= @project.title %></h1>
-    <%= form_tag user_project_path(current_user, @project), :method => :delete do %>
-      <% submit_tag "Delete", data: {confirm: "Are you sure?"} %>
-    <%end%>
+
     <div class = "row crud">
-      <div class = "small-3 columns">
-        <h2>CREATE</h2>
+      <div class = "small-2 columns">
+        <h1 class="project__show__title secondary" ><%= @project.title %></h1>
       </div>
-      <div class = "small-3 columns">
-        <h2>READ</h2>
+      <div class = "small-2 columns">
+        <h3>CREATE</h3>
       </div>
-      <div class = "small-3 columns">
-        <h2>EDIT</h2>
+      <div class = "small-2 columns">
+        <h3>READ</h3>
       </div>
-      <div class = "small-3 columns">
-        <h2>DELETE</h1>
+      <div class = "small-2 columns">
+        <h3>EDIT</h3>
+      </div>
+      <div class = "small-2 end columns">
+        <h3>DELETE</h3>
       </div>
     </div>
 
     <% values = {0 => "NotStarted.png", 1 => "Done.png", 2 => "InProgress.png", 3 => "NotApplicable.png"} %>
 
 <% @project.models.each do |model| %>
-   <h3><%= model.name %></h3>
   <div class = "row models">
-    <div class = "small-3 columns">
+    <div class = "small-2 columns">
+      <h3 class="model__show__title primary"><%= model.name %></h3>
+    </div>
+    <div class = "small-2 columns">
      <%= image_tag(values[model.CRUDcreate], class: "model__select__create__#{model.id}", :"data-dropdown"=> "dropCreate#{model.id}")%>
       <%= content_tag :ul, :id => "dropCreate#{model.id}", :class => "f-dropdown content" do %> 
         <%= content_tag :li, :value => 1, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDcreate" do%><%= image_tag("Done.png") %><%end%>
@@ -30,7 +32,7 @@
         <%= content_tag :li, :value => 3, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDcreate" do%><%= image_tag("NotApplicable.png") %><%end%>
       <% end %>
     </div>
-   <div class = "small-3 columns">  
+   <div class = "small-2 columns">  
      <%= image_tag(values[model.CRUDread], class: "model__select__read__#{model.id}", :"data-dropdown"=> "dropRead#{model.id}")%>
        <%= content_tag :ul, :id => "dropRead#{model.id}", :class => "f-dropdown content" do %> 
         <%= content_tag :li, :value => 1, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDread" do%><%= image_tag("Done.png") %><%end%>
@@ -38,7 +40,7 @@
         <%= content_tag :li, :value => 3, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDread" do%><%= image_tag("NotApplicable.png") %><%end%>
       <% end %>
    </div>
-   <div class = "small-3 columns"> 
+   <div class = "small-2 columns"> 
      <%= image_tag(values[model.CRUDupdate], class: "model__select__update__#{model.id}", :"data-dropdown"=> "dropUpdate#{model.id}")%>
       <%= content_tag :ul, :id => "dropUpdate#{model.id}", :class => "f-dropdown content" do %> 
         <%= content_tag :li, :value => 1, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDupdate" do%><%= image_tag("Done.png") %><%end%>
@@ -46,7 +48,7 @@
         <%= content_tag :li, :value => 3, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDupdate" do%><%= image_tag("NotApplicable.png") %><%end%>
       <% end %>
    </div>
-   <div class = "small-3 columns"> 
+   <div class = "small-2 columns"> 
      <%= image_tag(values[model.CRUDdestroy], class: "model__select__delete__#{model.id}", :"data-dropdown"=> "dropDelete#{model.id}")%>
       <%= content_tag :ul, :id => "dropDelete#{model.id}", :class => "f-dropdown content" do %> 
         <%= content_tag :li, :value => 1, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDdestroy" do%><%= image_tag("Done.png") %><%end%>
@@ -54,12 +56,14 @@
         <%= content_tag :li, :value => 3, :id => "model__change__#{model.id}", :modelID => model.id, :projectID => @project.id, :userID => current_user.id, :name => "CRUDdestroy" do%><%= image_tag("NotApplicable.png") %><%end%>
       <% end %>
    </div>
-  </div>
+  <div class = "small-2 columns">
       <%= form_tag user_project_model_path(current_user, @project, model),  :method => 'delete' do %>
-        <%=submit_tag "Delete", data: {confirm: 'Are you sure'} %>
+        <%=image_submit_tag "Delete.png", data: {confirm: 'Delete this model?'} %>
       <%end %>
-    </div>
+  </div>
+  </div>
 <% end %>
+
 
 <%=form_for :model, url: user_project_models_path(current_user,@project) do |f| %>
   <%= f.text_field :name, :placeholder => "Name" %>

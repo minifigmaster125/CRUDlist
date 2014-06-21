@@ -23,9 +23,20 @@
   //transform: translateY(-50%);
 }
 
+.primary{
+  color: $primary-color;
+}
 
-.top-bar .name h1 .top-bar__title { 
+.secondary{
   color: $secondary-color;
+}
+
+.top-bar {
+  margin-bottom: 20px;
+
+  .name h1 .top-bar__title { 
+    color: $secondary-color;
+  }
 }
 
 .top-bar-section .right .top-bar-section__email { 
