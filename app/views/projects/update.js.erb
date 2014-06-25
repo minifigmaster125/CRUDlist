@@ -1,6 +1,5 @@
 
 $("[id^=edit_project_]").on("ajax:success", function(e, data, status, xhr) {
-
   $("#edit_project_<%=@project.id%>").remove()
   $("#projectSummary<%=@project.id%>").append($("<%= j render(@project) %>"))
   $("[id^=projectTitle]").click(function(){

@@ -1,8 +1,28 @@
 <div class="row">
-  <div class = "small-4 small-centered columns">
-    <h1 class = "primary">Your Projects</h1>
+  <div class = "small-4 columns">
+    <h1 class = "text-center primary">Your Projects</h1>
   </div>
+<%= form_for :project, url: user_projects_path(current_user) do |f| %>
+  <div class = "small-5 columns">
+    <% if (@project != nil && @project.errors.any?)  %>
+      <div id="error_explanation">
+        <%= f.text_field :title, :placeholder => "Project Title", class: "small-5.columns add__project__title__field error" %>
+        <small class = "error">
+          <% @project.errors.full_messages.each do |msg| %>
+            <%= msg %>
+          <% end %>
+        </small>
+      </div>
+    <% else %>
+      <%= f.text_field :title, :placeholder => "Project Title", class: "small-5.columns add__project__title__field" %>
+    <% end%>
+  </div>
+  <div class = "small-3 columns">
+    <%= f.submit "Add", class: "button text-center add__project__button" %>
+  </div>
+<% end %>
 </div>
+
 <div id="projectList">
 <% if @projects != nil %>
   <% @projects.each do |project| %>
@@ -13,17 +33,4 @@
 <%end%>
 </div>
 
-<h1> Add a project</h1>
-<div class = "row">
-<%= form_for :project, url: user_projects_path(current_user) do |f| %>
-  <ul class="inline-list">
-    <div class = "small-5 columns">
-    <li><%= f.text_field :title, :placeholder => "Project Title", class: "small-5.columns" %></li>
-    </div>
-    <div class = "small-5 columns">
-    <li><%= f.submit "Add", class: "button text-center" %></li>
-    </div>
-  </ul>
-<% end %>
-</div>
 

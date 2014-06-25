@@ -1,6 +1,6 @@
 <% done = true %>
 <% project.models.each do |model| %>
-  <% if model.CRUDcreate != 1 ||  model.CRUDread != 1 ||  model.CRUDupdate != 1 ||  model.CRUDdestroy != 1 %>
+  <% if (model.CRUDcreate != 1 && model.CRUDcreate != 3)  ||  (model.CRUDread != 1 && model.CRUDread != 3)  ||  (model.CRUDupdate != 1 && model.CRUDupdate != 3) ||  (model.CRUDdestroy != 1 && model.CRUDdestroy != 3) %>
       <% done = false %>
   <% end %>
 <% end %>

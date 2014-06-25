@@ -1,17 +1,79 @@
-<h2>Sign in</h2>
+  <div class = "row top fullWidth collapse">
+    <div class = "small-6 columns top__left primary">
+    <div class = "top__hook">
+      <div class = "row">
+        <h3 class = "spacing intro">What's the matter?</h3>
+      </div>
+      <div class = "row">
+        <div class = "small-11 small-offset-1 columns">
+          <h2 class = "spacing intro">Don't have your CRUD together? </h2>
+        </div>
+      </div>
+      <div class = "row">
+        <h2 class = "spacing intro">Looks like you need a . . .</h2>
+      </div>
+      <div class = "row">
+        <div class = "small-6 small-offset-6 columns">
+          <h1 class = "secondary spacing large"><strong> CRUDlist</strong> </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class = " small-6 columns">
+
+      <div class = "top__right">
+      <div class = "row">
+        <h1 class = "text-center secondary large"><strong>CRUDlist</strong></h1>
+      </div>
+      <div class = "row">
+        <h3 class = "text-center secondary">an easy way to manage your CRUD ops</h3>
+      </div>
+      <div class = "row">
+        <h3 class = "text-center secondary">It's totally free. Go ahead. The pleasure's all mine.</h3>
+      </div>
+
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <div class = "row">
+    <div class = "small-6 small-offset-3 columns">
+      <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "login-form" %>
+    </div>
+  </div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+  <div class = "row">
+    <div class = "small-6 small-offset-3 columns">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "login-form" %></div>
+    </div>
+  </div>
 
+  <div class = "row">
+    <div class = "small-6 small-offset-3 columns">
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <div><%= f.check_box :remember_me, class: "text-center" %> <%= f.label :remember_me , class: "text-center"%></div>
   <% end -%>
+    </div>
+  </div>
 
-  <div><%= f.submit "Sign in" %></div>
+  <div class = "row">
+    <div class = "small-6 small-centered columns">
+      <%= f.submit "Sign in", class: "button home__button" %>
+    </div>
+  </div>
 <% end %>
 
+  <div class = "row">
+    <div class = "small-6 small-centered columns">
+      <h3 class = "text-center"> Or </h3>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "small-6 small-centered columns">
+      <%= link_to "Sign up", new_user_registration_path, class: "button home__button" %>
+    </div>
+  </div>
+
 <%= render "devise/shared/links" %>
+      </div>
+    </div>
+</div> <!-- TOP -->

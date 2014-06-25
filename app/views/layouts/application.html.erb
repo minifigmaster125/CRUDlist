@@ -7,9 +7,7 @@
       <li class="name">
       <% if user_signed_in? %>
         <h1><%= link_to "CRUDlist", user_projects_path(current_user), class: "top-bar__title"%></h1>
-      <% else %>
-        <h1><%= link_to "CRUDlist", new_user_session_path, class: "top-bar__title"%></h1>
-      <%end%>
+      <% end %>
       </li>
     </ul>
     <section class = "top-bar-section">
@@ -17,7 +15,7 @@
       <% if user_signed_in? %>
         <li><%=link_to "#{current_user.email}", edit_user_registration_path(current_user), class: "top-bar-section__email" %></li>
         <li><%=link_to 'Projects', user_projects_path(current_user) %></li>
-        <li><%=link_to 'Edit Yourself', edit_user_registration_path(current_user) %></li>
+        <li><%=link_to 'Help', '#' %></li>
         <li><%=link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
       <%end%>
     </ul>
@@ -41,6 +39,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,900' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -48,11 +47,20 @@
 
 
   <body>
-    <%= yield :header %>
+    <div class = "wrap" >
 
-    <%= render 'layouts/messages' %>
+      <% if user_signed_in? %>
+    <%= yield :header %>
+      <%end%>
+
+    <div class = "main" >
+    <!%= render 'layouts/messages' %>
     <%= yield %>
+  </div>
+    </div>
+      <% if user_signed_in? %>
     <%= yield :footer %>
+      <%end%>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

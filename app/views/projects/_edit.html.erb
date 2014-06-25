@@ -1,10 +1,10 @@
 
 <%= form_for(@project, {url: user_project_path(current_user, @project), project_id: @project.id,  remote: true}) do |f| %>
   <%content_tag :div, class: "row inline-list", id: "projectEdit#{@project.id}" do %>
-  <div class="small-6 columns">
-    <li><%= f.text_field :title, :value => @project.title, class: "small-6.columns inline", id: "projectInput#{@project.id}" %></li>
+  <div class="small-5 small-offset-3 columns">
+    <li><%= f.text_field :title, :value => @project.title, class: "small-9.columns inline", id: "projectInput#{@project.id}" %></li>
   </div>
-  <div class="small-6 columns">
+  <div class="small-3 columns">
     <li><%= f.submit "Update", id: "projectUpdate#{@project.id}", class: "button"%></li>
   </div>
   <% end %>

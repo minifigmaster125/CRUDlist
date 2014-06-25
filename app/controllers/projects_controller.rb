@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
+  @errors = "fatso"
 
   def new
   end
@@ -10,7 +11,8 @@ class ProjectsController < ApplicationController
     if (@project.save)
       redirect_to user_projects_path
     else
-      redirect_to user_projects_path
+      @projects = Project.where(user_id: current_user.id)
+      render "index"
     end
   end
 

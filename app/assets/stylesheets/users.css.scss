@@ -1,3 +1,41 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top__right {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.top__left {
+  height: inherit;
+}
+
+.spacing {
+  margin-bottom: 15%;
+}
+
+.top__hook {
+  padding-left: 20px;
+  padding-left: 20px;
+}
+
+.large {
+  font-size: 4em;
+}
+
+.intro {
+  color: white;
+}
+
+.login-form {
+  &:focus{
+    background-color:blue;
+  }
+}
+
+
+
+.home__button {
+  margin-left: 33%;
+}

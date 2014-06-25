@@ -17,8 +17,17 @@ select {
   background-image: image-url('Done.png');
 }
 
+#model_name {
+  margin-top: 13px;
+}
+
 .models {
   text-align: center;
+  li  {
+    img {
+      width: 30%;
+    }
+  }
 }
 
 .model__show__title {
