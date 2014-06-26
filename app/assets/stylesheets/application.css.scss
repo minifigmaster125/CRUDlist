@@ -32,10 +32,14 @@
 
 .primary{
   color: $primary-color;
-  background-color: $primary-color
+  //background-color: $primary-color
 }
 
 .top__hook {
+}
+
+.button-container{
+  text-align: center;
 }
 
 
@@ -50,7 +54,7 @@
     color: $secondary-color;
     font-family: 'Raleway', sans-serif;
     font-weight:900;
-    font-size: 2em;
+    //font-size: 2em;
   }
 }
 
@@ -86,10 +90,22 @@
     color: white;
     font-size:1.2em;
   }
+
+  .inline-list{
+    li{
+      float: none;
+      display:inline-block;
+    }
+  }
 }
 
-.footer__github{
+.footer__links{
   color: $secondary-color;
+  margin-top: 10px;
+
+  &:hover{
+    color: white;
+  }
 }
 
 @import "projects";

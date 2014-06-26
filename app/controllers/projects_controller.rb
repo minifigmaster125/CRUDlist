@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  @errors = "fatso"
 
   def new
   end
@@ -34,13 +33,13 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-
-    puts "HELLO"
     if(@project.update(project_params))
       respond_to do |format|
         format.html {}
         format.js {}
       end
+    else
+      render :status => 400
     end
   end
 

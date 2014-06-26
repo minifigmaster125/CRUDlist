@@ -7,8 +7,22 @@
   padding-right: 20px;
 }
 
+.flash__login__error{
+  text-align: center;
+  color: $primary-color;
+}
+
+.bottom {
+  margin-top: 30px;
+
+  .bottom__right__labels{
+    margin-top: 40px;
+  }
+ }
+
 .top__left {
   height: inherit;
+  background-color: $primary-color;
 }
 
 .spacing {
@@ -32,6 +46,10 @@
   &:focus{
     background-color:blue;
   }
+}
+
+.new_user{
+  margin-top: 20px;
 }
 
 

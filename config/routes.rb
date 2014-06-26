@@ -1,4 +1,5 @@
 CRUDlist::Application.routes.draw do
+  get "statics/help"
   devise_for :users
 
   root "projects#index"

@@ -15,7 +15,7 @@
       <% if user_signed_in? %>
         <li><%=link_to "#{current_user.email}", edit_user_registration_path(current_user), class: "top-bar-section__email" %></li>
         <li><%=link_to 'Projects', user_projects_path(current_user) %></li>
-        <li><%=link_to 'Help', '#' %></li>
+        <li><%=link_to 'Help', statics_help_path %></li>
         <li><%=link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
       <%end%>
     </ul>
@@ -26,7 +26,12 @@
 <% content_for :footer do %>
   <div class="footer" >
     <p>Courtesy of Suchaaver Chahal</p>
-    <p class="footer__github">View it on Github</p>
+    <div class = "row">
+    <ul class = "inline-list">
+    <li><h5><a href="https://github.com/minifigmaster125/CRUDlist" class="footer__links">View it on Github</a></h5></li>
+    <li><h5>  <a href="https://github.com/minifigmaster125/CRUDlist" class="footer__links">Talk about it on Hacker News</a></h5></li>
+    <li><h5 class="secondary"> Talk to me at suchaaverchahal AT gmail DOT com</h5></li>
+    </div>
   </div>
 <% end %>
 
@@ -58,9 +63,9 @@
     <%= yield %>
   </div>
     </div>
-      <% if user_signed_in? %>
     <%= yield :footer %>
-      <%end%>
+
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

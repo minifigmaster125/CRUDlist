@@ -1186,7 +1186,7 @@ $include-html-top-bar-classes: $include-html-classes;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+ $topbar-title-font-size: rem-calc(40);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: #333;
@@ -1203,7 +1203,7 @@ $include-html-top-bar-classes: $include-html-classes;
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: $font-weight-normal;
-// $topbar-link-font-size: rem-calc(13);
+ $topbar-link-font-size: rem-calc(20);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 // $topbar-link-bg-color-hover: #272727;

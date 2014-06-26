@@ -16,7 +16,7 @@
       </div>
       <div class = "row">
         <div class = "small-6 small-offset-6 columns">
-          <h1 class = "secondary spacing large"><strong> CRUDlist</strong> </h1>
+          <h1 class = "secondary large"><strong> CRUDlist</strong> </h1>
         </div>
       </div>
     </div>
@@ -52,13 +52,13 @@
 
   <div class = "row">
     <div class = "small-6 small-offset-3 columns">
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confrim Password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password" %>
     </div>
   </div>
 
   <div class = "row">
     <div class = "small-6 small-centered columns">
-      <%= f.submit "Sign up", class: "button home__button" %>
+      <%= f.submit "Sign up", class: "button expand" %>
     </div>
   </div>
 <% end %>
@@ -70,10 +70,109 @@
 
   <div class = "row">
     <div class = "small-6 small-centered columns">
-      <%=link_to "Sign in", new_user_session_path, class: "button home__button" %>
+      <%=link_to "Sign in", new_user_session_path, class: "button expand" %>
     </div>
   </div>
 
       </div>
     </div>
 </div> <!-- TOP -->
+
+  <div class = "row bottom fullWidth collapse">
+    <div class = "small-6 columns bottom__left">
+    <div class = "bottom__hook">
+      <div class = "row">
+        <h1 class = "text-center primary "><strong>So . . . What is it?</strong></h1>
+      </div>
+      <div class = "row">
+        <div class = "small-8 columns small-centered">
+          <h3 class = "text-center primary"> CRUD, for those who wish to use this app, should stand for:</h3>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "small-8 columns small-centered">
+          <h3 class = "text-center secondary"> Create</h3>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "small-8 columns small-centered">
+          <h3 class = "text-center secondary">Read</h3>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "small-8 columns small-centered">
+          <h3 class = "text-center secondary">Update</h3>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "small-8 columns small-centered">
+          <h3 class = "text-center secondary">Delete</h3>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "small-8 columns small-centered">
+          <h3 class = "text-center primary">The CRUDlist allows you to:</h3>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "small-10 columns small-centered">
+          <h3 class = "text-center primary"><strong>1.</strong> Create Projects</h3>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "small-10 columns small-centered">
+          <h3 class = "text-center primary"><strong>2.</strong> Create Resources/Models for your Projects</h3>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "small-10 columns small-centered">
+          <h3 class = "text-center primary"><strong>3.</strong> Track the completion of your CRUD ops per model</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class = " small-6 columns">
+
+    <div class = "top__right">
+
+      <div class = "row">
+        <div class = "small-10 columns small-centered">
+          <h3 class = "text-center primary">It should be fairly straighforward. CRUD ops can
+            be "done," "in progress," "not started," or "not applicable." At a future date,
+            I plan to make it so that you can make notes for each model's ops, so you can 
+            keep track of the little things (validations, bugs, etc). I also want to make 
+            sure it is fully responsive. Hopefully, this should help you make your web 
+            development workflow cleaner and faster.
+          </h3>
+        </div>
+      </div>
+
+      <div class = "small-10 columns small-centered bottom__right__labels">
+      <div class = "small-block-grid-4">
+        <li><%=image_tag("Done.png")%></li>
+        <li><%=image_tag("InProgress.png")%></li>
+        <li><%=image_tag("NotApplicable.png")%></li>
+        <li><%=image_tag("NotStarted.png")%></li>
+      </div>
+      <div class = "small-block-grid-4">
+        <li><h4 class = "text-center secondary"> Done </h4></li>
+        <li><h4 class = "text-center secondary"> In Progress</h4></li>
+        <li><h4 class = "text-center secondary"> Not Applicable </h4></li>
+        <li><h4 class = "text-center secondary"> Not Started </h4></li>
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+
+</div> <!-- BOTTOM -->

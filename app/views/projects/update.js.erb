@@ -7,3 +7,9 @@ $("[id^=edit_project_]").on("ajax:success", function(e, data, status, xhr) {
     $("#project" + id).remove()
   })  
 })
+
+$("[id^=edit_project_]").on("ajax:error", function(e, data, status, xhr) {
+  if (<%= @project.errors.any? %>){
+    $("#projectErrors<%=@project.id %>").html("<small class = 'error'><% @project.errors.full_messages.each do |msg| %><%= msg %><% end %></small>")
+  }
+})
