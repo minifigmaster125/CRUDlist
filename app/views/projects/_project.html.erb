@@ -1,10 +1,9 @@
 <% if project.models.empty? %>
   <% status = "NotStarted.png" %>
 <% else %>
+  <% status = "Done.png" %>
 <% project.models.each do |model| %>
-  <% if (model.CRUDcreate == 1 || model.CRUDcreate == 3)  &&  (model.CRUDread == 1 && model.CRUDread == 3)  &&  (model.CRUDupdate == 1 && model.CRUDupdate == 3) &&  (model.CRUDdestroy == 1 && model.CRUDdestroy == 3) %>
-      <% status = "Done.png" %>
-    <% else  %>
+  <% if (model.CRUDcreate == 2 || model.CRUDcreate == 0)  || (model.CRUDread == 2 ||  model.CRUDread == 0)  ||  (model.CRUDupdate == 0 || model.CRUDupdate == 2) ||  (model.CRUDdestroy == 2 || model.CRUDdestroy == 0) %>
       <% status = "InProgress.png" %>
   <% end %>
 <% end %>
