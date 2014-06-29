@@ -84,7 +84,7 @@
    </div>
    <div class = "small-2 columns">
       <%= form_tag user_project_model_path(current_user.id, @project.id, model.id),  :method => 'delete' do %>
-        <%=image_submit_tag "Delete.png", data: {confirm: 'Delete this model?'} %>
+        <%=image_submit_tag "Delete.png", data: {confirm: 'Delete this model?'}, class: "deleteModelImage" %>
       <%end %>
   </div>
   </div>

@@ -75,7 +75,7 @@
 
 .main {
   overflow: auto;
-  padding-bottom: 150px;
+  padding-bottom: 100px;
 }
 
 .footer {
@@ -96,6 +96,26 @@
       float: none;
       display:inline-block;
     }
+  }
+}
+
+@media #{$medium-only}{
+  .footer{
+    height:150px;
+    margin-top:-150px;
+  }
+  .main {
+    padding-bottom: 150px;
+  }
+}
+
+@media #{$small-only}{
+  .footer{
+    height:200px;
+    margin-top:-200px;
+  }
+  .main {
+    padding-bottom: 200px;
   }
 }
 
