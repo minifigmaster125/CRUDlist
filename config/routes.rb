@@ -6,7 +6,7 @@ CRUDlist::Application.routes.draw do
 
   resources :users do
     resources :projects do
-      resources :models
+      resources :models 
     end
   end
 

@@ -16,9 +16,5 @@ $(document).ready ->
       type: 'PATCH',
       #dataType: 'js',
       data: data,
-      success: ->
-        console.log("success")
-      failure: -> 
-        console.log("FAILURE")
     })
 
