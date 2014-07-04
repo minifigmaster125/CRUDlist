@@ -1,6 +1,6 @@
 == README
 
-CRUDlist is a web app that enables you to keep track of your models' CRUD
+CRUDlist is a free web app that enables you to keep track of your models' CRUD
 methods in a clean and orderly fashion. 
 
 Visit the actual app at http://CRUDlist.herokuapp.com
