@@ -33,6 +33,21 @@
 .screenshots{
 }
 
+.down__arrow{
+  width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	
+	border-top: 35px solid $secondary-color;
+  cursor:pointer;
+  cursor:hand;
+
+  &:hover{
+    border-top: 35px solid $primary-color;
+  }
+}
+
 .primary{
   color: $primary-color;
   //background-color: $primary-color

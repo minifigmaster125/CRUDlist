@@ -6,3 +6,6 @@
 
 $(".top").height($(window).height())
 $(".spacing").css("margin-bottom", $(window).height()/5)
+
+$(".down__arrow").click ->
+  $("html, body").animate({scrollTop: $(".top").height()})
