@@ -7,7 +7,15 @@ Visit the actual app at http://CRUDlist.herokuapp.com
 
 Ruby version: 2.1.0
 
-Enjoy using the app, and feel free to report any issues, or talke about it
+Enjoy using the app, and feel free to report any issues, or talk about it
 on Hacker News:  
+
+This release is Version 1. Responsively, the site currently works well 
+on devices sizes down to iPad size.
+
+In future releases, look forward to 100% fluid responsivity, the
+ability to take notes on each of your models' CRUD methods (to keep track 
+of validations, bugs, etc), and perhaps more.
+
 
 
