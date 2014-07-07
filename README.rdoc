@@ -8,7 +8,7 @@ Visit the actual app at http://CRUDlist.herokuapp.com
 Ruby version: 2.1.0
 
 Enjoy using the app, and feel free to report any issues, or talk about it
-on Hacker News:  
+on Hacker News: https://news.ycombinator.com/item?id=7999152 
 
 This release is Version 1. Responsively, the site currently works well 
 on devices sizes down to iPad size.
